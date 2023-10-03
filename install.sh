@@ -183,9 +183,9 @@ move_swtor_app_to_desktop() {
 launch_swtor() {
   echo -e "${PURPLE}\tLaunching SWTOR_setup.exe...${NONE}"
   if [[ $CURRENT_VERSION_COMBINED -ge $MACOS_CATALINA ]]; then
-    WINEPREFIX="/Users/$CURRENT_USER/SWTOR On Mac" wine32on64 "/Users/$CURRENT_USER/SWTOR On Mac/drive_c/Program Files/SWTOR_setup.exe" >/dev/null 2>&1
+    WINEDLLOVERRIDES="jscript=n,b;mshtml=n,b" WINEPREFIX="/Users/$CURRENT_USER/SWTOR On Mac" wine32on64 "/Users/$CURRENT_USER/SWTOR On Mac/drive_c/Program Files/SWTOR_setup.exe" >/dev/null 2>&1
   else
-    WINEPREFIX="/Users/$CURRENT_USER/SWTOR On Mac" wine "/Users/$CURRENT_USER/SWTOR On Mac/drive_c/Program Files (x86)/SWTOR_setup.exe" >/dev/null 2>&1
+    WINEDLLOVERRIDES="jscript=n,b;mshtml=n,b" WINEPREFIX="/Users/$CURRENT_USER/SWTOR On Mac" wine "/Users/$CURRENT_USER/SWTOR On Mac/drive_c/Program Files (x86)/SWTOR_setup.exe" >/dev/null 2>&1
     fi
 }
 
